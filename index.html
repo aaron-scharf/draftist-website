@@ -2,53 +2,452 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Draftist AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Draftist.ai — AI Replies in Gmail</title>
+  <meta name="description" content="Draftist generates premium Gmail replies in seconds — tone control, instant paste, and a high-tech workflow built for speed." />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <!-- Ambient background -->
+  <div class="bg">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-noise"></div>
+  </div>
 
-  <div class="background-glow"></div>
+  <!-- Cursor glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-  <nav>
-    <div class="logo">Draftist<span>.ai</span></div>
-    <a href="#download" class="nav-btn">Download</a>
-  </nav>
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark"></span>
+      <span class="brand-text">Draftist<span class="brand-dot">.ai</span></span>
+    </a>
 
-  <section class="hero">
-    <h1>
-      Write Perfect Gmail Replies 
-      <span>In Seconds</span>
-    </h1>
-    <p>AI-powered reply generation directly inside Gmail.</p>
-    <a href="#download" class="cta">Get Draftist</a>
-  </section>
+    <nav class="nav">
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#how">How it works</a>
+      <a class="nav-link" href="#pricing">Pricing</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+    </nav>
 
-  <section class="features">
-    <div class="card">
-      <h3>⚡ Instant Replies</h3>
-      <p>Generate smart responses with one click.</p>
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="#download">Download</a>
+      <a class="btn btn-primary magnetic" href="#download">
+        <span class="btn-shine"></span>
+        Get Draftist
+      </a>
     </div>
+  </header>
 
-    <div class="card">
-      <h3>🎯 Adjustable Tone</h3>
-      <p>Control formality and length with precision.</p>
-    </div>
+  <main id="top" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left reveal">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          Built for Gmail • Replies in seconds
+        </div>
 
-    <div class="card">
-      <h3>🔒 Private & Secure</h3>
-      <p>Your emails are processed securely.</p>
-    </div>
-  </section>
+        <h1 class="hero-title">
+          Write <span class="grad-text">premium</span> Gmail replies<br/>
+          <span class="muted">in seconds</span>.
+        </h1>
 
-  <section id="download" class="download">
-    <h2>Install Draftist</h2>
-    <a href="#" class="download-btn">Download Chrome Extension</a>
-  </section>
+        <p class="hero-sub">
+          Draftist generates high-quality responses directly inside Gmail — with tone control, smart formatting,
+          and a fast “generate → paste” flow.
+        </p>
 
-  <footer>
-    © 2026 Draftist.ai — Built for productivity.
-  </footer>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg magnetic" href="#download">
+            <span class="btn-shine"></span>
+            Download Extension
+          </a>
+          <a class="btn btn-ghost btn-lg magnetic" href="#how">
+            Watch how it works
+          </a>
+        </div>
 
+        <div class="hero-metrics">
+          <div class="metric glass">
+            <div class="metric-top">
+              <span class="metric-icon">⚡</span>
+              <span class="metric-title">Speed</span>
+            </div>
+            <div class="metric-value">1–2 clicks</div>
+            <div class="metric-sub">Generate → paste → send</div>
+          </div>
+
+          <div class="metric glass">
+            <div class="metric-top">
+              <span class="metric-icon">🎯</span>
+              <span class="metric-title">Control</span>
+            </div>
+            <div class="metric-value">Tone slider</div>
+            <div class="metric-sub">Short • Balanced • Detailed</div>
+          </div>
+
+          <div class="metric glass">
+            <div class="metric-top">
+              <span class="metric-icon">🔒</span>
+              <span class="metric-title">Privacy</span>
+            </div>
+            <div class="metric-value">Secure</div>
+            <div class="metric-sub">Designed for safe handling</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right reveal">
+        <div class="mock glass">
+          <div class="mock-top">
+            <div class="dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="mock-title">Draftist Panel</div>
+            <div class="mock-badge">LIVE</div>
+          </div>
+
+          <div class="mock-body">
+            <div class="mock-row">
+              <div class="chip">Tone: Professional</div>
+              <div class="chip">Length: Balanced</div>
+              <div class="chip">Signature: On</div>
+            </div>
+
+            <div class="mock-card glass-inner">
+              <div class="mock-label">Incoming email</div>
+              <div class="mock-text">
+                “Hi Aaron — can you send the revised proposal by tomorrow?
+                Also, can we align on next steps for rollout?”
+              </div>
+            </div>
+
+            <div class="mock-actions">
+              <button class="btn btn-primary magnetic" type="button">
+                <span class="btn-shine"></span>
+                Generate Reply
+              </button>
+              <button class="btn btn-ghost magnetic" type="button">
+                Paste into Gmail
+              </button>
+            </div>
+
+            <div class="mock-card glass-inner">
+              <div class="mock-label">Draftist reply</div>
+              <div class="mock-text typing" id="typingDemo"></div>
+            </div>
+
+            <div class="micro">
+              <span class="pulse-dot"></span>
+              Optimized for speed + clarity
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGO STRIP -->
+    <section class="logos reveal">
+      <div class="logos-inner glass">
+        <div class="logos-text">Works great for:</div>
+        <div class="logos-row">
+          <span class="logo-pill">Students</span>
+          <span class="logo-pill">Founders</span>
+          <span class="logo-pill">Sales</span>
+          <span class="logo-pill">Recruiting</span>
+          <span class="logo-pill">Support</span>
+          <span class="logo-pill">Teams</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="section">
+      <div class="section-head reveal">
+        <h2>Everything you need to reply fast — and sound smart.</h2>
+        <p>High-tech UX, premium output. Built for the “inbox grind” — without sounding robotic.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card glass reveal">
+          <div class="card-icon">⚡</div>
+          <h3>Instant Replies</h3>
+          <p>Generate a complete response in seconds — with structure, polish, and clarity.</p>
+          <div class="card-foot">One-click workflow</div>
+        </div>
+
+        <div class="card glass reveal">
+          <div class="card-icon">🎛️</div>
+          <h3>Tone & Length Control</h3>
+          <p>Match the moment: short, balanced, detailed — casual, professional, or formal.</p>
+          <div class="card-foot">Precision controls</div>
+        </div>
+
+        <div class="card glass reveal">
+          <div class="card-icon">🧩</div>
+          <h3>Paste When Ready</h3>
+          <p>Designed around timing — generate first, paste after the content is ready.</p>
+          <div class="card-foot">No half-drafts</div>
+        </div>
+
+        <div class="card glass reveal">
+          <div class="card-icon">✨</div>
+          <h3>Premium Formatting</h3>
+          <p>Natural paragraphs, helpful bullet points, and “human” phrasing by default.</p>
+          <div class="card-foot">Clean readability</div>
+        </div>
+
+        <div class="card glass reveal">
+          <div class="card-icon">🛡️</div>
+          <h3>Private by Design</h3>
+          <p>Built with a privacy-first mindset. Keep your workflow secure and clean.</p>
+          <div class="card-foot">Safer defaults</div>
+        </div>
+
+        <div class="card glass reveal">
+          <div class="card-icon">🚀</div>
+          <h3>High-Speed UX</h3>
+          <p>Glowing gradients, smooth micro-interactions, and zero clutter.</p>
+          <div class="card-foot">Feels expensive</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <div class="section-head reveal">
+        <h2>How it works</h2>
+        <p>Simple, fast, and designed like a premium tool.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step glass reveal">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h3>Install</h3>
+            <p>Add Draftist to Chrome. Open Gmail.</p>
+          </div>
+        </div>
+
+        <div class="step glass reveal">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h3>Choose tone + length</h3>
+            <p>Professional? Friendly? Short? Detailed? You control it.</p>
+          </div>
+        </div>
+
+        <div class="step glass reveal">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h3>Generate → Paste</h3>
+            <p>Draftist writes a full reply. Paste into Gmail when it’s ready.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section">
+      <div class="section-head reveal">
+        <h2>People don’t want “AI emails”. They want better emails.</h2>
+        <p>Draftist is built to sound like you — just faster.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="quote glass reveal">
+          <p>“This feels like a premium product. The UI is clean and the replies don’t sound generic.”</p>
+          <div class="quote-meta">
+            <span class="avatar"></span>
+            <div>
+              <div class="quote-name">Power user</div>
+              <div class="quote-role">Daily Gmail workflow</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote glass reveal">
+          <p>“Tone control is the difference. I can go short + professional without rewriting.”</p>
+          <div class="quote-meta">
+            <span class="avatar"></span>
+            <div>
+              <div class="quote-name">Student / leader</div>
+              <div class="quote-role">Busy inbox</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote glass reveal">
+          <p>“I’m replying faster and it actually reads better. That’s rare.”</p>
+          <div class="quote-meta">
+            <span class="avatar"></span>
+            <div>
+              <div class="quote-name">Founder</div>
+              <div class="quote-role">Sales + ops</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section">
+      <div class="section-head reveal">
+        <h2>Pricing</h2>
+        <p>Start free. Upgrade when you’re hooked.</p>
+      </div>
+
+      <div class="pricing">
+        <div class="price glass reveal">
+          <div class="price-top">
+            <h3>Free</h3>
+            <div class="price-value">$0</div>
+            <div class="price-sub">Try the workflow</div>
+          </div>
+          <ul class="price-list">
+            <li>Basic reply generation</li>
+            <li>Standard tone</li>
+            <li>Limited daily usage</li>
+          </ul>
+          <a class="btn btn-ghost btn-block magnetic" href="#download">Download</a>
+        </div>
+
+        <div class="price glass price-featured reveal">
+          <div class="badge">Most popular</div>
+          <div class="price-top">
+            <h3>Pro</h3>
+            <div class="price-value">$9<span class="small">/mo</span></div>
+            <div class="price-sub">For serious inbox speed</div>
+          </div>
+          <ul class="price-list">
+            <li>Unlimited replies</li>
+            <li>Full tone + length control</li>
+            <li>Priority improvements</li>
+          </ul>
+          <a class="btn btn-primary btn-block magnetic" href="#download">
+            <span class="btn-shine"></span>
+            Get Pro
+          </a>
+        </div>
+
+        <div class="price glass reveal">
+          <div class="price-top">
+            <h3>Team</h3>
+            <div class="price-value">$29<span class="small">/mo</span></div>
+            <div class="price-sub">For shared quality</div>
+          </div>
+          <ul class="price-list">
+            <li>Team tone presets</li>
+            <li>Shared formatting style</li>
+            <li>Admin controls</li>
+          </ul>
+          <a class="btn btn-ghost btn-block magnetic" href="#download">Contact</a>
+        </div>
+      </div>
+
+      <div class="fineprint reveal">
+        Pricing is placeholder for now — keep it, change it, or hide this section until launch.
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download" class="section download">
+      <div class="download-inner glass reveal">
+        <div class="download-left">
+          <h2>Install Draftist</h2>
+          <p>
+            Ready to move faster in Gmail? Download the extension and start generating replies instantly.
+          </p>
+
+          <div class="download-actions">
+            <a class="btn btn-primary btn-lg magnetic" href="#" id="downloadBtn">
+              <span class="btn-shine"></span>
+              Download Chrome Extension
+            </a>
+            <a class="btn btn-ghost btn-lg magnetic" href="#faq">Questions?</a>
+          </div>
+
+          <div class="subtle">
+            Tip: when you publish to Chrome Web Store, paste your store URL into the download button.
+          </div>
+        </div>
+
+        <div class="download-right">
+          <div class="mini glass-inner">
+            <div class="mini-title">Launch checklist</div>
+            <div class="mini-row"><span class="tick">✓</span> Website live</div>
+            <div class="mini-row"><span class="tick">✓</span> Repo connected</div>
+            <div class="mini-row"><span class="tick">✓</span> Vercel deploy</div>
+            <div class="mini-row"><span class="tick pending"></span> Chrome Web Store link</div>
+            <div class="mini-row"><span class="tick pending"></span> Domain (last step)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="section-head reveal">
+        <h2>FAQ</h2>
+        <p>Quick answers. No fluff.</p>
+      </div>
+
+      <div class="faq">
+        <button class="faq-item glass reveal" type="button">
+          <div class="faq-q">Is Draftist free?</div>
+          <div class="faq-a">There’s a free tier. Pro adds unlimited usage + advanced controls.</div>
+          <div class="faq-icon">+</div>
+        </button>
+
+        <button class="faq-item glass reveal" type="button">
+          <div class="faq-q">Does it work inside Gmail?</div>
+          <div class="faq-a">Yes — it’s designed to run alongside Gmail so you can generate and paste instantly.</div>
+          <div class="faq-icon">+</div>
+        </button>
+
+        <button class="faq-item glass reveal" type="button">
+          <div class="faq-q">Where do I put the Chrome Web Store link?</div>
+          <div class="faq-a">In the download button (we left an easy place in the code).</div>
+          <div class="faq-icon">+</div>
+        </button>
+
+        <button class="faq-item glass reveal" type="button">
+          <div class="faq-q">When do I buy the domain?</div>
+          <div class="faq-a">Last. Get the site perfect on Vercel first, then connect the domain when you’re ready.</div>
+          <div class="faq-icon">+</div>
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner glass">
+        <div class="footer-left">
+          <div class="brand small">
+            <span class="brand-mark"></span>
+            <span class="brand-text">Draftist<span class="brand-dot">.ai</span></span>
+          </div>
+          <div class="footer-sub">Built for productivity. Designed to feel premium.</div>
+        </div>
+
+        <div class="footer-right">
+          <a class="footer-link" href="#features">Features</a>
+          <a class="footer-link" href="#how">How it works</a>
+          <a class="footer-link" href="#pricing">Pricing</a>
+          <a class="footer-link" href="#download">Download</a>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © <span id="year"></span> Draftist.ai
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
